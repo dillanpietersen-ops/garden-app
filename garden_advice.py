@@ -26,6 +26,8 @@ advice_dict = {
     )
 }
 
+season = input("Enter the season (summer/winter): ")
+plant_type = input("Enter the plant type (flower/vegetable): ")
 
 # Function to get advice based on season and plant type.
 def get_advice(season, plant_type):
@@ -40,15 +42,13 @@ def get_advice(season, plant_type):
         key, "No advice available for this season and plant type combination."
     )
 
+# Determine advice based on the plant type
+if plant_type == "flower":
+    advice += "Use fertiliser to encourage blooms."
+elif plant_type == "vegetable":
+    advice += "Keep an eye out for pests!"
+else:
+    advice += "No advice for this type of plant."
 
-# Main function to collect user input and display advice.
-def main():
-    """Collect the user's choices and display the matching advice."""
-    season = input("Enter the season (summer/winter): ")
-    plant_type = input("Enter the plant type (flower/vegetable): ")
-    print(get_advice(season, plant_type))
-
-
-# Run the main function if this script is executed directly.
-if __name__ == "__main__":
-    main()
+# Print the generated advice
+print(advice)
