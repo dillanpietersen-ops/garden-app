@@ -1,3 +1,11 @@
+
+'''Task is the second GIT workflows revision addressing the feedback from the
+    first GIT workflow revision.
+    The code has been refactored to use a dictionary for storing advice
+    based on season and plant type,
+    and includes input validation to handle invalid inputs gracefully.'''
+
+
 # Store advice in a dictionary for multiple plants and seasons.
 advice_dict = {
     ("summer", "flower"): (
@@ -23,11 +31,13 @@ advice_dict = {
 def get_advice(season, plant_type):
     """Return advice for a season and plant type."""
     if not isinstance(season, str) or not isinstance(plant_type, str):
-        return "No advice for this season and plant type combination."
+        return (
+            "No advice available for this season and plant type combination."
+        )
 
     key = (season.strip().lower(), plant_type.strip().lower())
     return advice_dict.get(
-        key, "No advice for this season and plant type combination."
+        key, "No advice available for this season and plant type combination."
     )
 
 
